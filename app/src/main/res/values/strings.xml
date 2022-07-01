@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Ječnák</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Přehled</string>
+    <string name="title_grades">Známky</string>
+</resources>
