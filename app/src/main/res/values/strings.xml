@@ -3,4 +3,17 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Přehled</string>
     <string name="title_grades">Známky</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="user_name">Uživatelské jméno</string>
+    <string name="pass">Heslo</string>
+    <string name="log_in">Přihlásit se</string>
+    <string name="github_link"><a href="https://github.com/Dotteex/jecnak">Github</a></string>
 </resources>
