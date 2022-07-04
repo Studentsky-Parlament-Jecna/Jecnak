@@ -1,13 +1,15 @@
 package eu.dotteex.jecnak.controllers;
 
-import eu.dotteex.jecnak.models.Connect;
-import eu.dotteex.jecnak.models.Grade;
-import eu.dotteex.jecnak.models.Subject;
-import eu.dotteex.jecnak.enums.GradeSize;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
 import java.util.ArrayList;
+
+import eu.dotteex.jecnak.enums.GradeSize;
+import eu.dotteex.jecnak.models.Connect;
+import eu.dotteex.jecnak.models.Grade;
+import eu.dotteex.jecnak.models.Subject;
 
 public class GradeController implements Controller {
 
@@ -53,7 +55,6 @@ public class GradeController implements Controller {
                     }
                 }
             }
-
             subjects.add(subject);
         }
     }

@@ -3,13 +3,13 @@ package eu.dotteex.jecnak;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import eu.dotteex.jecnak.databinding.ActivityMainBinding;
 
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             BottomNavigationView navView = findViewById(R.id.nav_view);
 
             AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.navigation_home, R.id.navigation_grades)
+                    R.id.navigation_home, R.id.navigation_grades, R.id.navigation_profile)
                     .build();
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
             NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
