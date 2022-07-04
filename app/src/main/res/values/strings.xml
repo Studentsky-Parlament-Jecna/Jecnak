@@ -16,4 +16,11 @@
     <string name="pass">Heslo</string>
     <string name="log_in">Přihlásit se</string>
     <string name="github_link"><a href="https://github.com/Dotteex/jecnak">Github</a></string>
+    <string name="prof">Profil</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="log_out">Odhlásit se</string>
+    <string name="parents_messages">Sdělení rodičům</string>
+    <string name="absence">Omluvný list</string>
+    <string name="record">Příchody a odchody</string>
 </resources>

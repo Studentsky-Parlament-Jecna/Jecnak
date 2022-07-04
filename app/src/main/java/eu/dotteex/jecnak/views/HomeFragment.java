@@ -2,10 +2,10 @@ package eu.dotteex.jecnak.views;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
+import eu.dotteex.jecnak.LoginActivity;
 import eu.dotteex.jecnak.R;
 import eu.dotteex.jecnak.adapters.CardAdapter;
 import eu.dotteex.jecnak.controllers.CardController;
@@ -73,11 +74,21 @@ public class HomeFragment extends Fragment {
         @Override
         protected ArrayList<Card> doInBackground(Void... arg0) {
             SharedPreferences sh = getActivity().getSharedPreferences("login", MODE_PRIVATE);
-            //SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
             String user = sh.getString("user", "");
             String password = sh.getString("pass", "");
 
-            Connect connect = new Connect(user, password);
+            Connect connect = null;
+            try {
+                connect = new Connect(user, password);
+            } catch (Exception e) {
+                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("login", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("user", null);
+                editor.putString("pass", null);
+                editor.commit();
+
+                startActivity(new Intent(getActivity(), LoginActivity.class));
+            }
             CardController cc = new CardController(connect);
 
             return cc.getCards();

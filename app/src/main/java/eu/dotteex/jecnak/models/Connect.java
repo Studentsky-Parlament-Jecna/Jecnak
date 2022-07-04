@@ -120,4 +120,15 @@ public class Connect {
         return doc;
     }
 
+
+    public Document getProfile(){
+        Document doc = null;
+        try {
+            doc = Jsoup.connect("https://www.spsejecna.cz/student/" + user).cookies(session).get();
+        } catch (Exception e) {
+            this.setSession();
+        }
+        return doc;
+    }
+
 }
