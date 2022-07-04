@@ -3,9 +3,14 @@ package eu.dotteex.jecnak.models;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import eu.dotteex.jecnak.helpers.exception.LoginException;
 
 public class Connect {
 
@@ -18,35 +23,36 @@ public class Connect {
      * @param user  Student's username
      * @param pass  Student's password
      */
-    public Connect(String user, String pass) {
+    public Connect(String user, String pass) throws LoginException, IOException {
         this.user = user;
         this.pass = pass;
         this.session = new HashMap<>();
 
-        try { setSession(); } catch (Exception e) {
-            // internet issues
-        }
+        setSession();
     }
 
     /**
      * Log into web through HTTP POST Request and save/set session cookies
      * @throws Exception
      */
-    private void setSession() {
+    private void setSession() throws LoginException, IOException {
 
-        Connection.Response res = null;
-        try {
-            res = Jsoup.connect("https://www.spsejecna.cz/user/login")
-                    .data("user", user)
-                    .data("pass", pass)
-                    .method(Connection.Method.POST)
-                    .execute();
+        Connection.Response res = Jsoup.connect("https://www.spsejecna.cz/user/login")
+                .data("user", user)
+                .data("pass", pass)
+                .method(Connection.Method.POST)
+                .execute();
 
-            session = res.cookies();
-            session.put("role", "student"); //cookies for reading student news
-        }catch (Exception e) {
-            //System.out.println("Exception: some problem occuried - maybe internet issues?");
+        Document doc = res.parse();
+        Element loginMessage = doc.select(".message").first();
+        if(loginMessage != null) {
+            if(loginMessage.text().equalsIgnoreCase("Uživatelské jméno nebo heslo není platné.")) {
+                throw new LoginException("Login exception");
+            }
         }
+
+        session = res.cookies();
+        session.put("role", "student"); //cookies for reading student news
 
     }
 
@@ -59,7 +65,13 @@ public class Connect {
         try {
             doc = Jsoup.connect("https://www.spsejecna.cz/score/student").cookies(session).get();
         } catch (Exception e) {
-            this.setSession();
+            try {
+                this.setSession();
+            } catch (LoginException ex) {
+                ex.printStackTrace();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
         return doc;
     }
@@ -73,7 +85,13 @@ public class Connect {
         try {
             doc = Jsoup.connect("https://www.spsejecna.cz/").cookies(session).get();
         } catch (Exception e) {
-            this.setSession();
+            try {
+                this.setSession();
+            } catch (LoginException ex) {
+                ex.printStackTrace();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
         return doc;
     }
@@ -87,7 +105,13 @@ public class Connect {
         try {
             doc = Jsoup.connect("https://www.spsejecna.cz/user-student/record-list").cookies(session).get();
         } catch (Exception e) {
-            this.setSession();
+            try {
+                this.setSession();
+            } catch (LoginException ex) {
+                ex.printStackTrace();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
         return doc;
     }
@@ -101,7 +125,13 @@ public class Connect {
         try {
             doc[0] = Jsoup.connect("https://www.spsejecna.cz/absence/student").cookies(session).get();
         } catch (Exception e) {
-            setSession();
+            try {
+                this.setSession();
+            } catch (LoginException ex) {
+                ex.printStackTrace();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
         return doc[0];
     }
@@ -115,18 +145,33 @@ public class Connect {
         try {
             doc = Jsoup.connect("https://www.spsejecna.cz/absence/passing-student").cookies(session).get();
         } catch (Exception e) {
-            this.setSession();
+            try {
+                this.setSession();
+            } catch (LoginException ex) {
+                ex.printStackTrace();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
         return doc;
     }
 
-
-    public Document getProfile(){
+    /**
+     * Profile
+     * @return Document
+     */
+    public Document getProfile() {
         Document doc = null;
         try {
             doc = Jsoup.connect("https://www.spsejecna.cz/student/" + user).cookies(session).get();
         } catch (Exception e) {
-            this.setSession();
+            try {
+                this.setSession();
+            } catch (LoginException ex) {
+                ex.printStackTrace();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
         return doc;
     }
