@@ -14,7 +14,7 @@
         android:textSize="20sp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerViewHistory"
         android:layout_width="371dp"
         android:layout_height="wrap_content">
 

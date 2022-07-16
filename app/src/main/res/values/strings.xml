@@ -23,4 +23,6 @@
     <string name="parents_messages">Sdělení rodičům</string>
     <string name="absence">Omluvný list</string>
     <string name="record">Příchody a odchody</string>
+    <string name="subj">Předměty</string>
+    <string name="histor">Historie</string>
 </resources>

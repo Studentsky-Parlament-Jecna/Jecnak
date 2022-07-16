@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import eu.dotteex.jecnak.MainActivity;
 import eu.dotteex.jecnak.R;
+import eu.dotteex.jecnak.adapters.BoxAdapter;
 import eu.dotteex.jecnak.adapters.SubjectAdapter;
 import eu.dotteex.jecnak.databinding.FragmentGradesBinding;
 import eu.dotteex.jecnak.models.Subject;
@@ -21,21 +22,14 @@ import eu.dotteex.jecnak.models.Subject;
 public class GradesFragment extends Fragment {
 
     private FragmentGradesBinding binding;
-    private RecyclerView recyclerView;
+    private RecyclerView subjectsRecyclerView;
+    private RecyclerView historyRecyclerView;
     private Subject[] subjects;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         ArrayList<Subject> subjectList = null;
-        /*
-        try {
-            subjectList = new GetGrades().execute().get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
 
         subjectList = ((MainActivity) getActivity()).getControlers().getGradeController().getSubjects();
         subjects = new Subject[subjectList.size()];
@@ -49,10 +43,15 @@ public class GradesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = FragmentGradesBinding.inflate(inflater, container, false).getRoot();
 
-        recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        recyclerView.setAdapter(new SubjectAdapter(view.getContext(), subjects));
+        historyRecyclerView = view.findViewById(R.id.recyclerViewHistory);
+        historyRecyclerView.setHasFixedSize(true);
+        historyRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        historyRecyclerView.setAdapter(new SubjectAdapter(view.getContext(), subjects));
+
+        subjectsRecyclerView = view.findViewById(R.id.recyclerViewSubjects);
+        subjectsRecyclerView.setHasFixedSize(true);
+        subjectsRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false));
+        subjectsRecyclerView.setAdapter(new BoxAdapter(view.getContext(), subjects));
 
         return view;
     }
