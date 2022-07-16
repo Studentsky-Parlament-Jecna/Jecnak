@@ -18,6 +18,12 @@
         tools:layout="@layout/fragment_grades" />
 
     <fragment
+        android:id="@+id/navigation_canteen"
+        android:name="eu.dotteex.jecnak.views.CanteenFragment"
+        android:label="@string/canteen"
+        tools:layout="@layout/fragment_canteen" />
+
+    <fragment
         android:id="@+id/navigation_profile"
         android:name="eu.dotteex.jecnak.views.ProfileFragment"
         android:label="@string/prof"

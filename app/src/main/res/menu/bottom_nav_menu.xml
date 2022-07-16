@@ -12,6 +12,11 @@
         android:title="@string/title_grades" />
 
     <item
+        android:id="@+id/navigation_canteen"
+        android:icon="@drawable/ic_jidelna"
+        android:title="@string/canteen" />
+
+    <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_profile"
         android:title="@string/prof"/>
