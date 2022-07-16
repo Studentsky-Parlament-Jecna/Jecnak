@@ -1,35 +1,45 @@
 package eu.dotteex.jecnak.controllers;
 
-import eu.dotteex.jecnak.enums.CardType;
-import eu.dotteex.jecnak.models.*;
-
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class CardController implements Controller {
+import eu.dotteex.jecnak.controllers.types.GradeController;
+import eu.dotteex.jecnak.controllers.types.NewsController;
+import eu.dotteex.jecnak.controllers.types.RecordController;
+import eu.dotteex.jecnak.enums.CardType;
+import eu.dotteex.jecnak.models.Card;
+import eu.dotteex.jecnak.models.Grade;
+import eu.dotteex.jecnak.models.News;
+import eu.dotteex.jecnak.models.Record;
+import eu.dotteex.jecnak.models.Subject;
 
-    private final Connect connect;
+public class CardController implements Controller {
+    NewsController nc;
+    GradeController gc;
+    RecordController rc;
+
     ArrayList<Card> cards = new ArrayList<>();
 
-    /**
-     * Constructs a new CardController.
-     * @param connect Connect
-     */
-    public CardController(Connect connect) {
-        this.connect = connect;
+    public CardController(NewsController nc, GradeController gc, RecordController rc) {
+        this.nc = nc;
+        this.gc = gc;
+        this.rc = rc;
         update();
     }
+
+
 
     public ArrayList<Card> getCards() {
         return cards;
     }
 
     public void update() {
-        NewsController nc = new NewsController(connect);
-        GradeController gc = new GradeController(connect);
-        RecordController rc = new RecordController(connect);
 
         for(Subject subject : gc.getSubjects()) {
             for(Grade grade : subject.getGradesToArray()) {

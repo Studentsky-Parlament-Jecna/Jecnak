@@ -1,6 +1,6 @@
 package eu.dotteex.jecnak.controllers;
 
-interface Controller {
+public interface Controller {
 
     public void update();
 

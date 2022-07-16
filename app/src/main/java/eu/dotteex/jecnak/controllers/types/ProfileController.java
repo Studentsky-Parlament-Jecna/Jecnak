@@ -1,4 +1,4 @@
-package eu.dotteex.jecnak.controllers;
+package eu.dotteex.jecnak.controllers.types;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -6,9 +6,10 @@ import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 
+import eu.dotteex.jecnak.controllers.Controller;
 import eu.dotteex.jecnak.models.Connect;
 
-public class ProfileController implements Controller{
+public class ProfileController implements Controller {
 
     private final Connect connect;
     private final ArrayList<String> data = new ArrayList<>();
