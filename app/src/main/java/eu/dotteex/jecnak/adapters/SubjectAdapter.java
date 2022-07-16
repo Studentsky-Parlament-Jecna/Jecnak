@@ -24,7 +24,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
         public ViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.title);
-            recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+            recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewHistory);
         }
 
     }
