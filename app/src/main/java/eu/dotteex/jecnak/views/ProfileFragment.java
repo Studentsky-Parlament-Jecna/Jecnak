@@ -4,7 +4,6 @@ import static android.content.Context.MODE_PRIVATE;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,13 +21,11 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
 
 import eu.dotteex.jecnak.LoginActivity;
+import eu.dotteex.jecnak.MainActivity;
 import eu.dotteex.jecnak.R;
-import eu.dotteex.jecnak.controllers.ProfileController;
 import eu.dotteex.jecnak.databinding.FragmentProfileBinding;
-import eu.dotteex.jecnak.models.Connect;
 
 
 public class ProfileFragment extends Fragment {
@@ -43,13 +40,7 @@ public class ProfileFragment extends Fragment {
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
 
 
-        try {
-            data = new GetProfile().execute().get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        data = ((MainActivity) getActivity()).getControlers().getProfileController().getData();
 
 
     }
@@ -64,7 +55,6 @@ public class ProfileFragment extends Fragment {
         TextView adressTextView = view.findViewById(R.id.profile_adress);
         TextView classTextView = view.findViewById(R.id.profile_class);
         ImageView imageView = view.findViewById(R.id.profile_pic);
-        //((NetworkImageView) view.findViewById(R.id.profile_pic)).setImageUrl(data.get(10), MySingletone.getInstance(this).getImageLoader());
         ImageLoader.getInstance().displayImage("https://www.spsejecna.cz/"+data.get(10), imageView);
 
         nameTextView.setText(data.get(0));
@@ -101,24 +91,6 @@ public class ProfileFragment extends Fragment {
             return true;
         }
         return false;
-    }
-
-    private class GetProfile extends AsyncTask<Void, Void, ArrayList<String>>{
-
-        @Override
-        protected ArrayList<String> doInBackground(Void... voids) {
-            SharedPreferences sh = getActivity().getSharedPreferences("login", MODE_PRIVATE);
-            String user = sh.getString("user", "");
-            String password = sh.getString("pass", "");
-            Connect connect = null;
-            try {
-                connect = new Connect(user, password);
-            } catch (Exception e) {
-            }
-            ProfileController pc = new ProfileController(connect);
-
-            return pc.getData();
-        }
     }
 
 }
