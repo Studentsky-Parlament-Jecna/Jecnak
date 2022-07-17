@@ -24,4 +24,4 @@ Naše aplikace ovšem přináší řadu nových užitečných funkcí.
 ## Jak se zapojit do vývoje?
 
 Zapojit se může každý student školy a to pomocí pull requestu.
-Nejlepší ovšem bude, když se předem ozveš na Discord serveru studentského parlamentu, kde můžeme o vývoji a případných změnách diskutovat.
+Nejlepší ovšem bude, když se předem ozveš na [Discord server Studentského Parlamentu](https://discord.gg/KkdNSGdSv9), kde můžeme o vývoji a případných změnách diskutovat v k tomu určeném kanálu.
