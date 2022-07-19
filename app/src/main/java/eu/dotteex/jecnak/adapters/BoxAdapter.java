@@ -42,26 +42,9 @@ public class BoxAdapter extends RecyclerView.Adapter<BoxAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        viewHolder.grade.setText(data[position].getFinalGrade());
+        viewHolder.grade.setText(String.valueOf(data[position].getGradeAvg()));
         viewHolder.subject.setText(data[position].getName());
 
-/*        switch (Integer.getInteger(data[position].getFinalGrade())){
-            case 1:
-                holder.card.setCardBackgroundColor(context.getColor(R.color.grade_1));
-                break;
-            case 2:
-                holder.card.setCardBackgroundColor(context.getColor(R.color.grade_2));
-                break;
-            case 3:
-                holder.card.setCardBackgroundColor(context.getColor(R.color.grade_3));
-                break;
-            case 4:
-                holder.card.setCardBackgroundColor(context.getColor(R.color.grade_4));
-                break;
-            case 5:
-                holder.card.setCardBackgroundColor(context.getColor(R.color.grade_5));
-                break;
-        }*/
         switch(data[position].getFinalGrade()){
             case "1":
                 viewHolder.card.setCardBackgroundColor(context.getColor(R.color.grade_1));
@@ -85,7 +68,6 @@ public class BoxAdapter extends RecyclerView.Adapter<BoxAdapter.ViewHolder>{
                 viewHolder.card.setCardBackgroundColor(context.getColor(R.color.gray));
                 break;
         }
-
 
     }
 

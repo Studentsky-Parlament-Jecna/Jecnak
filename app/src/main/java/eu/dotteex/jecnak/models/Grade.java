@@ -1,8 +1,9 @@
 package eu.dotteex.jecnak.models;
 
+import java.io.Serializable;
+
 import eu.dotteex.jecnak.enums.GradeSize;
 import eu.dotteex.jecnak.helpers.RegexHelper;
-import java.io.Serializable;
 
 public class Grade implements Serializable {
 
@@ -13,6 +14,7 @@ public class Grade implements Serializable {
     private String teacher;
     private boolean isUncountable;
     private int ymd; // used for sorting
+        private String subject;
 
     /**
      * Constructs a new Grade. Content must contain date and teacher in brackets seperated by comma.
@@ -20,8 +22,9 @@ public class Grade implements Serializable {
      * @param content   Grade content (e.g. title (02.05.2022, teacher))
      * @param weight    Grade weight (GradeSize enum)
      */
-    public Grade(String value, String content, GradeSize weight) {
+    public Grade(String value, String content, GradeSize weight, String subject) {
         RegexHelper r = new RegexHelper(content);
+        this.subject = subject;
 
         setValue(value);
         setTitle(r.group(1));
@@ -29,6 +32,7 @@ public class Grade implements Serializable {
         setDate(r.group(2).split(", "));
         setTeacher(r.group(2).split(", "));
         setIsUncountable();
+
     }
 
     public void setValue(String value) {
@@ -95,6 +99,10 @@ public class Grade implements Serializable {
 
     public int getYmd() {
         return ymd;
+    }
+
+    public String getSubject() {
+        return subject;
     }
 
     public boolean isUncountable() {

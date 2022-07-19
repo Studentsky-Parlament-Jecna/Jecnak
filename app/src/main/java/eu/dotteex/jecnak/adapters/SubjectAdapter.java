@@ -1,12 +1,11 @@
 package eu.dotteex.jecnak.adapters;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import eu.dotteex.jecnak.R;
@@ -34,19 +33,19 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
         this.data = data;
     }
 
+
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.subject_row, viewGroup, false);
-        return new ViewHolder(view);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return null;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        viewHolder.title.setText(data[position].getName()+" (průměr: "+data[position].getGradeAvg()+")");
-        viewHolder.recyclerView.setHasFixedSize(true);
-        viewHolder.recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        viewHolder.recyclerView.setAdapter(new GradeAdapter(context, data[position].getGradesToArray()));
+       // viewHolder.title.setText(data[position].getName()+" (průměr: "+data[position].getGradeAvg()+")");
+       // viewHolder.recyclerView.setHasFixedSize(true);
+       // viewHolder.recyclerView.setLayoutManager(new LinearLayoutManager(context));
+       // viewHolder.recyclerView.setAdapter(new GradeAdapter(context, data[position].getGradesToArray()));
     }
 
     @Override

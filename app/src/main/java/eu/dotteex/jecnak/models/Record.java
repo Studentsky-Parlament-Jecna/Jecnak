@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Record implements Serializable {
 
+    private String type;
     private String content;
     private String date;
     private int ymd; // used for sorting

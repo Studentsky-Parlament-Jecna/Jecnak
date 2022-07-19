@@ -1,4 +1,4 @@
-package eu.dotteex.jecnak;
+package eu.dotteex.jecnak.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +15,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.IOException;
 
+import eu.dotteex.jecnak.R;
 import eu.dotteex.jecnak.helpers.exception.LoginException;
 import eu.dotteex.jecnak.models.Connect;
 

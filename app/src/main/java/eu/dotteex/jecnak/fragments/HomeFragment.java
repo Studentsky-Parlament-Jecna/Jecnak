@@ -1,7 +1,9 @@
-package eu.dotteex.jecnak.views;
+package eu.dotteex.jecnak.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -12,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import eu.dotteex.jecnak.MainActivity;
+import eu.dotteex.jecnak.activities.MainActivity;
 import eu.dotteex.jecnak.R;
 import eu.dotteex.jecnak.adapters.CardAdapter;
 import eu.dotteex.jecnak.controllers.CardController;
@@ -57,6 +59,7 @@ public class HomeFragment extends Fragment {
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         View view = FragmentHomeBinding.inflate(inflater, container, false).getRoot();
 
         recyclerView = view.findViewById(R.id.recyclerViewHistory);
@@ -73,5 +76,9 @@ public class HomeFragment extends Fragment {
         binding = null;
     }
 
-
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.default_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 }

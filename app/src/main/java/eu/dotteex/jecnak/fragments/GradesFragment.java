@@ -1,4 +1,4 @@
-package eu.dotteex.jecnak.views;
+package eu.dotteex.jecnak.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,11 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import eu.dotteex.jecnak.MainActivity;
 import eu.dotteex.jecnak.R;
+import eu.dotteex.jecnak.activities.MainActivity;
 import eu.dotteex.jecnak.adapters.BoxAdapter;
-import eu.dotteex.jecnak.adapters.SubjectAdapter;
+import eu.dotteex.jecnak.adapters.GradeAdapter;
 import eu.dotteex.jecnak.databinding.FragmentGradesBinding;
+import eu.dotteex.jecnak.models.Grade;
 import eu.dotteex.jecnak.models.Subject;
 
 public class GradesFragment extends Fragment {
@@ -24,20 +25,16 @@ public class GradesFragment extends Fragment {
     private FragmentGradesBinding binding;
     private RecyclerView subjectsRecyclerView;
     private RecyclerView historyRecyclerView;
-    private Subject[] subjects;
+    private ArrayList<Subject> subjects;
+    private ArrayList<Grade> grades;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         ArrayList<Subject> subjectList = null;
 
-        subjectList = ((MainActivity) getActivity()).getControlers().getGradeController().getSubjects();
-        subjects = new Subject[subjectList.size()];
-        int i = 0;
-        for(Subject subject : subjectList) {
-            subjects[i] = subject;
-            i++;
-        }
+        subjects = ((MainActivity) getActivity()).getControlers().getGradeController().getSubjects();
+        grades = ((MainActivity) getActivity()).getControlers().getGradeController().getGrades();
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,12 +43,13 @@ public class GradesFragment extends Fragment {
         historyRecyclerView = view.findViewById(R.id.recyclerViewHistory);
         historyRecyclerView.setHasFixedSize(true);
         historyRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        historyRecyclerView.setAdapter(new SubjectAdapter(view.getContext(), subjects));
+        historyRecyclerView.setAdapter(new GradeAdapter(view.getContext(), grades));
 
         subjectsRecyclerView = view.findViewById(R.id.recyclerViewSubjects);
         subjectsRecyclerView.setHasFixedSize(true);
         subjectsRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false));
-        subjectsRecyclerView.setAdapter(new BoxAdapter(view.getContext(), subjects));
+        subjectsRecyclerView.setAdapter(new BoxAdapter(view.getContext(), subjects.toArray(new Subject[subjects.size()])));
+
 
         return view;
     }

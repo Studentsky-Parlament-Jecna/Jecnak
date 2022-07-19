@@ -5,6 +5,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import eu.dotteex.jecnak.controllers.Controller;
 import eu.dotteex.jecnak.enums.GradeSize;
@@ -16,6 +17,9 @@ public class GradeController implements Controller {
 
     private final Connect connect;
     private final ArrayList<Subject> subjects = new ArrayList<>();
+
+
+    private ArrayList<Grade> gradesArray = new ArrayList<>();
 
     /**
      * Constructs a new GradeController.
@@ -50,14 +54,27 @@ public class GradeController implements Controller {
                     if(grade.select(".value").text().length() != 1) continue;
 
                     if(grade.hasClass("scoreSmall")) {
-                        subject.addGrade(new Grade(grade.select(".value").text(), grade.attr("title"), GradeSize.SMALL));
+                        Grade tempGrade = new Grade(grade.select(".value").text(), grade.attr("title"), GradeSize.SMALL, subject.getName());
+                        subject.addGrade(tempGrade);
                     }else {
-                        subject.addGrade(new Grade(grade.select(".value").text(), grade.attr("title"), GradeSize.BIG));
+                        Grade tempGrade = new Grade(grade.select(".value").text(), grade.attr("title"), GradeSize.BIG, subject.getName());
+                        subject.addGrade(tempGrade);
                     }
                 }
             }
             subjects.add(subject);
         }
+        setGrades();
+        // sort grades
+        gradesArray.sort(new Comparator<Grade>() {
+            @Override
+            public int compare(Grade grade, Grade t1) {
+                Integer ymd1 = new Integer(grade.getYmd());
+                Integer ymd2 = new Integer(t1.getYmd());
+                return ymd2.compareTo(ymd1);
+            }
+        });
+
     }
 
     public String avgGrades() {
@@ -69,13 +86,15 @@ public class GradeController implements Controller {
     }
 
     public ArrayList<Grade> getGrades() {
+        return gradesArray;
+
+    }
+    public void setGrades(){
         ArrayList<Grade> result = new ArrayList<>();
         for(Subject subject : subjects) {
-            for(Grade grade : subject.getGradesToArray()) {
-                result.add(grade);
-            }
+            result.addAll(subject.getGradesToArray());
         }
-        return result;
+        gradesArray = result;
     }
 
     public String getFinalGrades() {
