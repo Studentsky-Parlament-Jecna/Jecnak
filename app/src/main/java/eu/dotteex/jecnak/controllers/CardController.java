@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 import eu.dotteex.jecnak.controllers.types.GradeController;
@@ -57,7 +56,7 @@ public class CardController implements Controller {
             cards.add(new Card(CardType.NEWS, novelty.getTitle(), novelty.getContent(), novelty.getDate()+", "+novelty.getAuthor(), novelty.getYmd()));
         }
 
-        Collections.sort(cards, new Comparator<Card>() {
+        cards.sort(new Comparator<Card>() {
             public int compare(Card card1, Card card2) {
                 Integer ymd1 = new Integer(card1.getYmd());
                 Integer ymd2 = new Integer(card2.getYmd());

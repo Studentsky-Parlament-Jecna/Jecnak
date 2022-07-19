@@ -1,4 +1,4 @@
-package eu.dotteex.jecnak.views;
+package eu.dotteex.jecnak.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,8 +21,7 @@ public class CanteenFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = FragmentCanteenBinding.inflate(inflater, container, false).getRoot();
-        return view;
+        return FragmentCanteenBinding.inflate(inflater, container, false).getRoot();
     }
 
     @Override

@@ -6,6 +6,7 @@ public class LateArrival {
 
     private String date;
     private String dayName;
+    private boolean isLate;
     private int count; // počet pozdních příchodů za daný den
     private int unauthorizedCount; // počet neomluvených pozdních příchodů
 
@@ -22,6 +23,8 @@ public class LateArrival {
         setCount(content);
         setUnauthorizedCount(content);
     }
+
+
 
     public void setDate(String date) {
         this.date = date;
@@ -57,6 +60,10 @@ public class LateArrival {
 
     public int getUnauthorizedCount() {
         return unauthorizedCount;
+    }
+
+    public boolean getIsLate() {
+        return count > 0;
     }
 
     @Override

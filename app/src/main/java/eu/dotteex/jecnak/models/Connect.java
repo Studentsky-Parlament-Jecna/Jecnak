@@ -4,7 +4,6 @@ import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -67,9 +66,7 @@ public class Connect {
         } catch (Exception e) {
             try {
                 this.setSession();
-            } catch (LoginException ex) {
-                ex.printStackTrace();
-            } catch (IOException ex) {
+            } catch (LoginException | IOException ex) {
                 ex.printStackTrace();
             }
         }
@@ -87,9 +84,7 @@ public class Connect {
         } catch (Exception e) {
             try {
                 this.setSession();
-            } catch (LoginException ex) {
-                ex.printStackTrace();
-            } catch (IOException ex) {
+            } catch (LoginException | IOException ex) {
                 ex.printStackTrace();
             }
         }
@@ -107,9 +102,7 @@ public class Connect {
         } catch (Exception e) {
             try {
                 this.setSession();
-            } catch (LoginException ex) {
-                ex.printStackTrace();
-            } catch (IOException ex) {
+            } catch (LoginException | IOException ex) {
                 ex.printStackTrace();
             }
         }
@@ -127,9 +120,7 @@ public class Connect {
         } catch (Exception e) {
             try {
                 this.setSession();
-            } catch (LoginException ex) {
-                ex.printStackTrace();
-            } catch (IOException ex) {
+            } catch (LoginException | IOException ex) {
                 ex.printStackTrace();
             }
         }
@@ -147,9 +138,24 @@ public class Connect {
         } catch (Exception e) {
             try {
                 this.setSession();
-            } catch (LoginException ex) {
+            } catch (LoginException | IOException ex) {
                 ex.printStackTrace();
-            } catch (IOException ex) {
+            }
+        }
+        return doc;
+    }
+    public Document getPassing(int month, int yearId) {
+        Document doc = null;
+        try {
+            doc = Jsoup.connect("https://www.spsejecna.cz/absence/passing-student")
+                    .data("schoolYearId", String.valueOf(yearId))
+                    .data("schoolYearPartMonthId", String.valueOf(month))
+                    .cookies(session)
+                    .get();
+        } catch (Exception e) {
+            try {
+                this.setSession();
+            } catch (LoginException | IOException ex) {
                 ex.printStackTrace();
             }
         }
@@ -167,9 +173,7 @@ public class Connect {
         } catch (Exception e) {
             try {
                 this.setSession();
-            } catch (LoginException ex) {
-                ex.printStackTrace();
-            } catch (IOException ex) {
+            } catch (LoginException | IOException ex) {
                 ex.printStackTrace();
             }
         }

@@ -1,10 +1,13 @@
-package eu.dotteex.jecnak;
+package eu.dotteex.jecnak.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -15,6 +18,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.concurrent.ExecutionException;
 
+import eu.dotteex.jecnak.R;
 import eu.dotteex.jecnak.controllers.Controllers;
 import eu.dotteex.jecnak.databinding.ActivityMainBinding;
 import eu.dotteex.jecnak.models.Connect;
@@ -44,8 +48,12 @@ public class MainActivity extends AppCompatActivity {
             BottomNavigationView navView = findViewById(R.id.nav_view);
 
             AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.navigation_home, R.id.navigation_grades, R.id.navigation_canteen, R.id.navigation_profile)
-                    .build();
+                    R.id.navigation_home,
+                    R.id.navigation_grades,
+                    R.id.navigation_canteen,
+                    R.id.navigation_attendance,
+                    R.id.navigation_profile
+            ).build();
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
             NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
             NavigationUI.setupWithNavController(binding.navView, navController);
@@ -85,6 +93,24 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+                return true;
+            case R.id.menu_logout:
+                SharedPreferences sharedPreferences = getSharedPreferences("login", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("user", null);
+                editor.putString("pass", null);
+                editor.commit();
+                startActivity(new Intent(this, LoginActivity.class));
+                return true;
+            case R.id.menu_about:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Dotteex/jecnak#readme")));
+                return true;
+        }
+        return false;
+    }
 }
