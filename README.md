@@ -16,10 +16,11 @@ Aplikace je alternativou k již existující aplikaci [Ječnák v kapse](https:/
 Naše aplikace ovšem přináší řadu nových užitečných funkcí. 
 
 ## Funkce aplikace
-* přehled nových známek, novinek ze školy, sdělení rodičům
-* přehledný seznam známek včetně popisu a s celkovým průměrem z daného předmětu
-* absence, pozdní příchody, jídelna
-* upozornění na nové známky prostřednictvím notifikací
+- [x] přehled nových známek, novinek ze školy, sdělení rodičům
+- [x] přehledný seznam známek včetně popisu a s celkovým průměrem z daného předmětu
+- [x] absence, pozdní příchody
+- [ ] jídelna
+- [ ] upozornění na nové známky prostřednictvím notifikací
 
 ## Jak se zapojit do vývoje?
 
