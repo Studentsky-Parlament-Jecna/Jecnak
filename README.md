@@ -3,10 +3,10 @@
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/github/issues/Dotteex/jecnak">
-<img src="https://img.shields.io/github/issues-closed/Dotteex/jecnak">
-<img src="https://img.shields.io/github/contributors/Dotteex/jecnak">
-<img src="https://img.shields.io/github/license/Dotteex/jecnak">
+<img src="https://img.shields.io/github/issues/Studentsky-Parlament-Jecna/jecnak">
+<img src="https://img.shields.io/github/issues-closed/Studentsky-Parlament-Jecna/jecnak">
+<img src="https://img.shields.io/github/contributors/Studentsky-Parlament-Jecna/jecnak">
+<img src="https://img.shields.io/github/license/Studentsky-Parlament-Jecna/jecnak">
 </p>
 
 ## O aplikaci
