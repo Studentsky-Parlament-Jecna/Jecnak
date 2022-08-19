@@ -12,7 +12,7 @@
 
 ## O aplikaci
 
-Ječňák je mobilní školní aplikace vyvíjená studenty SPŠE Ječná.
+Neoficiální mobilní aplikace školy SPŠE Ječná vyvíjena studenty.
 Aplikace je alternativou k již existující aplikaci [Ječnák v kapse](https://github.com/JohnyDaDeveloper/Jecnakvkapse), která nenabízí tolik funkcí a jedná se spíše o mobilní verzi školního webu.
 Naše aplikace ovšem přináší řadu nových užitečných funkcí. 
 
