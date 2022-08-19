@@ -7,6 +7,7 @@
 <img src="https://img.shields.io/github/issues-closed/Studentsky-Parlament-Jecna/jecnak">
 <img src="https://img.shields.io/github/contributors/Studentsky-Parlament-Jecna/jecnak">
 <img src="https://img.shields.io/github/license/Studentsky-Parlament-Jecna/jecnak">
+<img src="https://img.shields.io/github/downloads/Studentsky-Parlament-Jecna/jecnak/total">
 </p>
 
 ## O aplikaci
@@ -22,7 +23,12 @@ Naše aplikace ovšem přináší řadu nových užitečných funkcí.
 - [ ] jídelna
 - [ ] upozornění na nové známky prostřednictvím notifikací
 
+## Instalace <img src="https://img.shields.io/github/v/release/Studentsky-Parlament-Jecna/Jecnak?include_prereleases&logo=android">
+Nejnovější verzi najdeš [zde](https://github.com/Studentsky-Parlament-Jecna/Jecnak/releases/latest) 
+
+
+
 ## Jak se zapojit do vývoje?
 
-Zapojit se může každý student školy a to pomocí pull requestu.
-Nejlepší ovšem bude, když se předem ozveš na [Discord server Studentského Parlamentu](https://discord.gg/KkdNSGdSv9), kde můžeme o vývoji a případných změnách diskutovat v k tomu určeném kanálu.
+Zapojit se může každý a to pomocí pull requestu.
+Nejlepší ovšem bude, když se předem ozveš na [Discord](https://discord.gg/KkdNSGdSv9) Studentského Parlamentu, kde můžeme o vývoji a případných změnách diskutovat v k tomu určeném kanálu.
