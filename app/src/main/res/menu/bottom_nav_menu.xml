@@ -7,6 +7,11 @@
         android:title="@string/title_home" />
 
     <item
+        android:id="@+id/navigation_attendance"
+        android:icon="@drawable/ic_checklist"
+        android:title="@string/attendance"/>
+
+    <item
         android:id="@+id/navigation_grades"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_grades" />
@@ -15,11 +20,6 @@
         android:id="@+id/navigation_canteen"
         android:icon="@drawable/ic_jidelna"
         android:title="@string/canteen" />
-
-    <item
-        android:id="@+id/navigation_attendance"
-        android:icon="@drawable/ic_checklist"
-        android:title="@string/attendance"/>
 
     <item
         android:id="@+id/navigation_profile"
