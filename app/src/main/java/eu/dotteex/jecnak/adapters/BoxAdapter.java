@@ -28,8 +28,8 @@ public class BoxAdapter extends RecyclerView.Adapter<BoxAdapter.ViewHolder>{
 
         public ViewHolder(View view) {
             super(view);
-            grade = (TextView) view.findViewById(R.id.box_grade);
             subject = (TextView) view.findViewById(R.id.box_subject);
+            grade = (TextView) view.findViewById(R.id.box_grade);
             card = (CardView) view.findViewById(R.id.box_sub_grade);
         }
     }
@@ -43,7 +43,7 @@ public class BoxAdapter extends RecyclerView.Adapter<BoxAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         viewHolder.grade.setText(String.valueOf(data[position].getGradeAvg()));
-        viewHolder.subject.setText(data[position].getName());
+        viewHolder.subject.setText(data[position].getAbbr());
 
         switch(data[position].getFinalGrade()){
             case "1":

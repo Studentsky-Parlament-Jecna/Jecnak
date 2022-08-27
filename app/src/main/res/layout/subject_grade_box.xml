@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="130dp"
-    android:layout_height="150dp"
-    app:cardElevation="10dp"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    app:cardElevation="5dp"
     app:cardCornerRadius="20dp"
-    android:layout_margin="10dp"
-    android:foreground="?android:attr/selectableItemBackground"
+    android:layout_margin="5dp"
     android:clickable="true"
     android:id="@+id/box_sub_grade">
 
@@ -15,26 +14,26 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="5dp">
 
-
-        <TextView
-            android:id="@+id/box_grade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="50dp"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:text="Známka" />
 
         <TextView
             android:id="@+id/box_subject"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textAlignment="center"
-            android:text="Předmět" />
+            android:gravity="center_vertical"
+            android:text="Předmět"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/box_grade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Známka"
+            android:textAlignment="center" />
     </LinearLayout>
 
 
