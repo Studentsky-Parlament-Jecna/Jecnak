@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="eu.dotteex.jecnak.fragments.HomeFragment"
+        android:name="com.jecnaparlament.jecnak.fragments.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_grades"
-        android:name="eu.dotteex.jecnak.fragments.GradesFragment"
+        android:name="com.jecnaparlament.jecnak.fragments.GradesFragment"
         android:label="@string/title_grades"
         tools:layout="@layout/fragment_grades" />
 
     <fragment
         android:id="@+id/navigation_canteen"
-        android:name="eu.dotteex.jecnak.fragments.CanteenFragment"
+        android:name="com.jecnaparlament.jecnak.fragments.CanteenFragment"
         android:label="@string/canteen"
         tools:layout="@layout/fragment_canteen" />
 
     <fragment
         android:id="@+id/navigation_attendance"
-        android:name="eu.dotteex.jecnak.fragments.AttendanceFragment"
+        android:name="com.jecnaparlament.jecnak.fragments.AttendanceFragment"
         android:label="@string/attendance"
         tools:layout="@layout/fragment_attendance" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="eu.dotteex.jecnak.fragments.ProfileFragment"
+        android:name="com.jecnaparlament.jecnak.fragments.ProfileFragment"
         android:label="@string/prof"
         tools:layout="@layout/fragment_profile" />
 </navigation>
