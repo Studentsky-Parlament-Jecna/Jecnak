@@ -44,4 +44,18 @@
     <string name="seti">Nastavení</string>
     <string name="about">O aplikaci</string>
     <string name="attendance">Docházka</string>
+    <string name="title_notification_enabled">Povolit oznámení</string>
+    <string name="summary_notification_enabled">(1 kontrola = 1 přihlášení na školní web)</string>
+    <string name="title_sync_interval">Interval kontroly</string>
+    <string name="title_sync_only_on_wifi">Kontrola jen na WI-FI</string>
+    <string name="summary_sync_only_on_wifi">Deaktivace povede k vyšší spotřebě mobilních dat. Umožní se však pravidelná kontrola.</string>
+    <string name="title_type_of_notifications">Druhy oznámení</string>
+    <string name="summary_notify_new_grade">Oznámení o nové známce</string>
+    <string name="summary_notify_new_news">Oznámení při nové aktualitě</string>
+    <string name="summary_attendance">Oznámení zda jsem přišel/a nebo nepřišel/a včas</string>
+    <string name="title_attendance">Pozdní příchod?</string>
+    <string name="title_new_grade">Nová známky</string>
+    <string name="summary_dnd">Pokud se nacházíš ve škole, tak bude v průběhu vyučovací hodiny zapnutý režim nerušit (DND).</string>
+    <string name="title_dnd">Chytrý režim nerušit (DND)</string>
+    <string name="title_other">Ostatní</string>
 </resources>

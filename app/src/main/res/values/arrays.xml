@@ -9,4 +9,33 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <string-array name="sync_entries">
+        <item>3 hodiny</item>
+        <item>6 hodin</item>
+        <item>12 hodin</item>
+        <item>24 hodin</item>
+    </string-array>
+
+    <string-array name="sync_values">
+        <item>3_hours</item>
+        <item>6_hours</item>
+        <item>12_hours</item>
+        <item>24_hours</item>
+    </string-array>
+
+    <string-array name="type_of_notification_entries">
+        <item>3 hodiny</item>
+        <item>6 hodin</item>
+        <item>12 hodin</item>
+        <item>24 hodin</item>
+    </string-array>
+
+    <string-array name="type_of_notification_values">
+        <item>3_hours</item>
+        <item>6_hours</item>
+        <item>12_hours</item>
+        <item>24_hours</item>
+    </string-array>
+
 </resources>

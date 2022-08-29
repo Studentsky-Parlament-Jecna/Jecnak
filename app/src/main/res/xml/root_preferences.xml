@@ -1,65 +1,53 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <PreferenceCategory app:title="@string/messages_header">
-
-        <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true" />
-
+    <PreferenceCategory app:title="Oznámení">
+        <SwitchPreference
+            app:defaultValue="false"
+            app:key="notification_enabled"
+            app:title="@string/title_notification_enabled"
+            app:summary="@string/summary_notification_enabled"/>
         <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
-            app:useSimpleSummaryProvider="true" />
+            app:defaultValue="3_hours"
+            app:dependency="notification_enabled"
+            app:entries="@array/sync_entries"
+            app:entryValues="@array/sync_values"
+            app:key="notification_interval"
+            app:useSimpleSummaryProvider="true"
+            app:title="@string/title_sync_interval" />
+        <SwitchPreference
+            app:defaultValue="true"
+            app:dependency="notification_enabled"
+            app:key="notification_cellular_enabled"
+            app:title="@string/title_sync_only_on_wifi"
+            app:summary="@string/summary_sync_only_on_wifi"/>
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/sync_header">
-
-        <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
-
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
-
+    <PreferenceCategory
+        app:title="@string/title_type_of_notifications"
+        app:dependency="notification_enabled"
+        app:allowDividerAbove="false"
+        >
+        <CheckBoxPreference
+            app:defaultValue="true"
+            app:key="notification_type_new_message"
+            app:summary="@string/summary_notify_new_grade"
+            app:title="@string/title_new_grade" />
+        <CheckBoxPreference
+            app:defaultValue="true"
+            app:key="notification_type_new_message"
+            app:summary="@string/summary_notify_new_news"
+            app:title="Nové aktuality" />
+        <CheckBoxPreference
+            app:defaultValue="true"
+            app:key="notification_type_new_message"
+            app:summary="@string/summary_attendance"
+            app:title="@string/title_attendance" />
     </PreferenceCategory>
-    <PreferenceCategory app:title="@string/messages_header">
-
-        <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true" />
-
-        <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
-            app:useSimpleSummaryProvider="true" />
-
+    <PreferenceCategory app:title="@string/title_other">
+        <SwitchPreference
+            app:defaultValue="false"
+            app:key="notification_enabled"
+            app:title="@string/title_dnd"
+            app:summary="@string/summary_dnd"/>
     </PreferenceCategory>
-    <PreferenceCategory app:title="@string/sync_header">
-
-        <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
-
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
-
-    </PreferenceCategory>
-
 </PreferenceScreen>
