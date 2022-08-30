@@ -44,10 +44,8 @@ public class ProfileFragment extends Fragment {
 
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
 
-        data = ((MainActivity) getActivity()).getControlers().getProfileController().getData();
-        records = ((MainActivity) getActivity()).getControlers().getRecordController().getRecords();
-
-
+        data = MainActivity.controllers.getProfileController().getData();
+        records = MainActivity.controllers.getRecordController().getRecords();
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -82,7 +80,6 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        // TODO Add your menu entries here
         inflater.inflate(R.menu.default_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
@@ -91,21 +88,6 @@ public class ProfileFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         binding = null;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.menu_logout) {
-            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("login", MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("user", null);
-            editor.putString("pass", null);
-            editor.commit();
-
-            startActivity(new Intent(getActivity(), LoginActivity.class));
-            return true;
-        }
-        return false;
     }
 
 }

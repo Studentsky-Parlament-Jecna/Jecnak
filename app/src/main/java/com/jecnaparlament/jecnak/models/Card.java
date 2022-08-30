@@ -1,5 +1,9 @@
 package com.jecnaparlament.jecnak.models;
 
+import static com.jecnaparlament.jecnak.notifications.App.CHANNEL_GRADES_ID;
+import static com.jecnaparlament.jecnak.notifications.App.CHANNEL_NEWS_ID;
+import static com.jecnaparlament.jecnak.notifications.App.CHANNEL_RECORD_ID;
+
 import com.jecnaparlament.jecnak.enums.CardType;
 import com.jecnaparlament.jecnak.helpers.DateHelper;
 import java.io.Serializable;
@@ -81,6 +85,19 @@ public class Card implements Serializable {
 
     public int getYmd() {
         return ymd;
+    }
+
+    public String getNotificationChannelID(){
+        switch (type){
+            case GRADE:
+                return CHANNEL_GRADES_ID;
+            case RECORD:
+                return CHANNEL_RECORD_ID;
+            case NEWS:
+                return CHANNEL_NEWS_ID;
+            default:
+                return "";
+        }
     }
 
     @Override

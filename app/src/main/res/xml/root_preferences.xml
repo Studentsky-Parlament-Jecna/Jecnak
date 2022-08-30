@@ -29,24 +29,24 @@
         >
         <CheckBoxPreference
             app:defaultValue="true"
-            app:key="notification_type_new_message"
+            app:key="notification_grades"
             app:summary="@string/summary_notify_new_grade"
             app:title="@string/title_new_grade" />
         <CheckBoxPreference
             app:defaultValue="true"
-            app:key="notification_type_new_message"
+            app:key="notification_news"
             app:summary="@string/summary_notify_new_news"
             app:title="Nové aktuality" />
         <CheckBoxPreference
             app:defaultValue="true"
-            app:key="notification_type_new_message"
+            app:key="notification_late_arrival"
             app:summary="@string/summary_attendance"
             app:title="@string/title_attendance" />
     </PreferenceCategory>
     <PreferenceCategory app:title="@string/title_other">
         <SwitchPreference
             app:defaultValue="false"
-            app:key="notification_enabled"
+            app:key="features_dnd"
             app:title="@string/title_dnd"
             app:summary="@string/summary_dnd"/>
     </PreferenceCategory>

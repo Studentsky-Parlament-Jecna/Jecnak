@@ -1,5 +1,7 @@
 package com.jecnaparlament.jecnak.controllers.types;
 
+import androidx.annotation.NonNull;
+
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -75,6 +77,7 @@ public class AbsenceController implements Controller {
     public ArrayList<Attendance> getAttendace() {
         return attendace;
     }
+    @NonNull
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();

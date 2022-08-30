@@ -1,13 +1,17 @@
 package com.jecnaparlament.jecnak.controllers;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.jecnaparlament.jecnak.controllers.types.GradeController;
 import com.jecnaparlament.jecnak.controllers.types.NewsController;
 import com.jecnaparlament.jecnak.controllers.types.RecordController;
@@ -22,14 +26,17 @@ public class CardController implements Controller {
     NewsController nc;
     GradeController gc;
     RecordController rc;
+    Context context;
 
     ArrayList<Card> cards = new ArrayList<>();
 
-    public CardController(NewsController nc, GradeController gc, RecordController rc) {
+    public CardController(NewsController nc, GradeController gc, RecordController rc, Context context) {
         this.nc = nc;
         this.gc = gc;
         this.rc = rc;
+        this.context = context;
         update();
+        saveCards();
     }
 
 
@@ -63,45 +70,32 @@ public class CardController implements Controller {
                 return ymd2.compareTo(ymd1);
             }
         });
-
     }
 
-    public void serialize() {
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("cards.ser"))) {
-            out.writeObject(cards);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void saveCards(){
+        Type cardsType = new TypeToken<ArrayList<Card>>() {}.getType();
+
+        //Create a string with serialized ArrayList<Card> (in JSON format)
+        Gson gson = new Gson();
+        String json = gson.toJson(cards, cardsType);
+
+        // Save (json) data into shared preferences
+        SharedPreferences sharedPreferences = context.getSharedPreferences("school_data", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("data",json);
+        editor.apply();
     }
 
-    /**
-     * Ready for notifications.
-     */
-    public void findDiff() {
+    public ArrayList<Card> getOldCards(){
+        Type cardsType = new TypeToken<ArrayList<Card>>() {}.getType();
 
-        ArrayList<Card> list1 = new ArrayList<>();
-        ArrayList<Card> list2 = new ArrayList<>();
+        //Get (json) data from shared preferences
+        SharedPreferences sharedPreferences = context.getSharedPreferences("school_data", MODE_PRIVATE);
+        String json = sharedPreferences.getString("data", "");
 
-        try (ObjectInputStream out = new ObjectInputStream(new FileInputStream("cards.ser"))) {
-            list1 = (ArrayList<Card>) out.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        for(Card card : cards) {
-            list2.add(card);
-        }
-
-        // for test purposes
-        list2.add(new Card(CardType.RECORD, "test", "test", "test", 20200520));
-        list2.add(new Card(CardType.RECORD, "test", "test", "test", 20200520));
-
-        list2.removeAll(list1);
-
-        for(Card card : list2) {
-            System.out.println(card);
-        }
-
+        //Deserialize (json) data into ArrayList<Card>
+        Gson gson = new Gson();
+        return gson.fromJson(json, cardsType);
     }
 
     @Override

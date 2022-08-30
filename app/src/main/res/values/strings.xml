@@ -58,4 +58,8 @@
     <string name="summary_dnd">Pokud se nacházíš ve škole, tak bude v průběhu vyučovací hodiny zapnutý režim nerušit (DND).</string>
     <string name="title_dnd">Chytrý režim nerušit (DND)</string>
     <string name="title_other">Ostatní</string>
+    <string name="new_grade">Nová známka</string>
+    <string name="new_news">Novinky</string>
+    <string name="new_parents_news">Sdělení rodičům</string>
+    <string name="without_description">(bez popisu)</string>
 </resources>

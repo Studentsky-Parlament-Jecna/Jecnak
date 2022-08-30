@@ -32,9 +32,7 @@ public class DateHelper {
             }else {
                 throw new IllegalDateLengthException("Ymd integer must be length of 8.");
             }
-        }catch(IllegalDateLengthException e) {
-            e.printStackTrace();
-        }catch(IllegalDateFormatException e) {
+        }catch(IllegalDateLengthException | IllegalDateFormatException e) {
             e.printStackTrace();
         }
 

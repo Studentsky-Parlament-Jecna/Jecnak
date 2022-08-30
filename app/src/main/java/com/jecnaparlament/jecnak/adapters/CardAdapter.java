@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jecnaparlament.jecnak.enums.CardType;
@@ -17,7 +18,7 @@ import com.jecnaparlament.jecnak.models.Card;
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
     Context context;
-    private Card[] data;
+    private final Card[] data;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView subtitle;
@@ -42,15 +43,16 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         this.data = data;
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.card, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
         if(data[position].getType() == CardType.GRADE) {
             String grade = data[position].getContent();
             switch(grade) {
@@ -77,7 +79,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
                     break;
             }
 
-            viewHolder.subtitle.setText("Nová známka");
+            viewHolder.subtitle.setText(R.string.new_grade);
             viewHolder.title.setText(data[position].getTitle());
             viewHolder.content.setTextSize(40);
             viewHolder.content.setTypeface(viewHolder.content.getTypeface(), Typeface.BOLD);
@@ -91,7 +93,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         }else if(data[position].getType() == CardType.NEWS) {
 
             viewHolder.linearLayout.setBackgroundColor(context.getColor(R.color.blue_400));
-            viewHolder.subtitle.setText("Novinky");
+            viewHolder.subtitle.setText(R.string.new_news);
             viewHolder.title.setText(data[position].getTitle());
             viewHolder.content.setText(data[position].getContent());
             viewHolder.content.setTextSize(20);
@@ -102,7 +104,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
             viewHolder.linearLayout.setBackgroundColor(context.getColor(R.color.purple_700));
             viewHolder.subtitle.setVisibility(View.GONE);
-            viewHolder.title.setText("Sdělení rodičům");
+            viewHolder.title.setText(R.string.new_parents_news);
             viewHolder.content.setText(data[position].getContent());
             viewHolder.content.setTextSize(20);
             viewHolder.content.setTypeface(viewHolder.content.getTypeface(), Typeface.NORMAL);

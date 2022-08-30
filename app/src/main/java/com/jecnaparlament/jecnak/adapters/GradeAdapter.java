@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,8 +17,8 @@ import com.jecnaparlament.jecnak.models.Grade;
 
 public class GradeAdapter extends RecyclerView.Adapter<GradeAdapter.ViewHolder> {
 
-    private Context context;
-    private ArrayList<Grade> data;
+    private final Context context;
+    private final ArrayList<Grade> data;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView subject;
@@ -44,21 +45,22 @@ public class GradeAdapter extends RecyclerView.Adapter<GradeAdapter.ViewHolder> 
         this.data = data;
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.grade_row, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
         if(data.get(position).getTitle().equals("")) {
-            viewHolder.title.setText("(bez popisu)");
+            viewHolder.title.setText(R.string.without_description);
         }else {
             viewHolder.title.setText(data.get(position).getTitle());
         }
-        viewHolder.subtitle.setText(data.get(position).getDate()+", "+data.get(position).getTeacher());
+        viewHolder.subtitle.setText(data.get(position).getDate()+", "+ data.get(position).getTeacher());
 
         viewHolder.subject.setText(data.get(position).getSubject());
 

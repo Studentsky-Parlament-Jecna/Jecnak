@@ -14,7 +14,7 @@ import com.jecnaparlament.jecnak.models.Subject;
 public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHolder> {
 
     Context context;
-    private Subject[] data;
+    private final Subject[] data;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView title;

@@ -10,6 +10,14 @@ import com.jecnaparlament.jecnak.R;
 
 public class SettingsActivity extends AppCompatActivity {
 
+    public static final String KEY_ARE_NOTIFICATION_ENABLED = "notification_enabled";
+    public static final String KEY_NOTIFICATION_INTERVAL = "notification_interval";
+    public static final String KEY_NOTIFICATION_ON_CELLULAR = "notification_cellular_enabled";
+    public static final String KEY_GRADES = "notification_grades";
+    public static final String KEY_NEWS = "notification_news";
+    public static final String KEY_LATE_ARRIVAL = "notification_late_arrival";
+    public static final String KEY_DND = "features_dnd";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

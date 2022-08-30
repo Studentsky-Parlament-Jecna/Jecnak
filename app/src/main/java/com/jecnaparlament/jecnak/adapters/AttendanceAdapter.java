@@ -17,10 +17,10 @@ import com.jecnaparlament.jecnak.models.Attendance;
 
 public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.ViewHolder> {
 
-    private Context context;
-    private ArrayList<Attendance> attendances;
+    private final Context context;
+    private final ArrayList<Attendance> attendances;
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder{
         private final TextView date;
         private final TextView arrival;
         private final TextView exit;
@@ -38,8 +38,9 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
         this.attendances = attendances;
     }
 
+    @NonNull
     @Override
-    public AttendanceAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public AttendanceAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.attendance_row, parent, false);
         return new ViewHolder(view);

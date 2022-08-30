@@ -2,6 +2,8 @@ package com.jecnaparlament.jecnak.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -21,7 +23,6 @@ import com.jecnaparlament.jecnak.models.Attendance;
 public class AttendanceFragment extends Fragment {
 
     private FragmentAttendanceBinding binding;
-    private RecyclerView recyclerView;
     private ArrayList<Attendance> attendanceArrayList;
 
 
@@ -38,18 +39,26 @@ public class AttendanceFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        attendanceArrayList = ((MainActivity) getActivity()).getControlers().getAbsenceController().getAttendace();
+        attendanceArrayList = MainActivity.controllers.getAbsenceController().getAttendace();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         View view = FragmentAttendanceBinding.inflate(inflater, container, false).getRoot();
 
 
-        recyclerView = view.findViewById(R.id.recyclerViewAttendance);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerViewAttendance);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(new AttendanceAdapter(view.getContext(), attendanceArrayList));
         return view;
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.default_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
 }

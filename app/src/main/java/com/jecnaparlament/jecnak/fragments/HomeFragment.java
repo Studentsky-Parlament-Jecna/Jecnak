@@ -24,32 +24,18 @@ import com.jecnaparlament.jecnak.models.Card;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    private RecyclerView recyclerView;
+    CardController cardController;
     ArrayList<Card> cardList = null;
     private Card[] cards;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //ArrayList<Card> cardList = null;
-
-        // TODO: 16.07.2022 - ziskej karty z mainActivity
-
-        /*
-        try {
-            cardList = GetCards().execute().get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-*/
-
-        cardList = new CardController(
-                ((MainActivity) getActivity()).getControlers().getNewsController(),
-                ((MainActivity) getActivity()).getControlers().getGradeController(),
-                ((MainActivity) getActivity()).getControlers().getRecordController()
-        ).getCards();
+        cardController = new CardController(
+                MainActivity.controllers.getNewsController(),
+                MainActivity.controllers.getGradeController(),
+                MainActivity.controllers.getRecordController(),
+                getContext());
+        cardList = cardController.getCards();
         cards = new Card[cardList.size()];
         int i = 0;
         for(Card card : cardList) {
@@ -61,8 +47,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         View view = FragmentHomeBinding.inflate(inflater, container, false).getRoot();
-
-        recyclerView = view.findViewById(R.id.recyclerViewHistory);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerViewHistory);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(new CardAdapter(view.getContext(), cards));
