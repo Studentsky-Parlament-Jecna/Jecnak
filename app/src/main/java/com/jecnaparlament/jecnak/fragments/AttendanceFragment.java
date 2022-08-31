@@ -12,8 +12,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
+import com.google.android.material.tabs.TabLayout;
 import com.jecnaparlament.jecnak.R;
 import com.jecnaparlament.jecnak.activities.MainActivity;
 import com.jecnaparlament.jecnak.adapters.AttendanceAdapter;
@@ -52,6 +56,16 @@ public class AttendanceFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(new AttendanceAdapter(view.getContext(), attendanceArrayList));
+
+        DateFormat dateFormat = new SimpleDateFormat("MM");
+        TabLayout tabLayout = view.findViewById(R.id.tabLayout_attendance);
+
+        Date date = new Date();
+        int month = Integer.parseInt(dateFormat.format(date));
+        // -1 because indexes starts at 0 not 1 like months
+        tabLayout.getTabAt(Math.abs(month-7-1)).select();
+
+
         return view;
     }
 
