@@ -91,6 +91,7 @@ public class SchoolService extends JobService {
                                 }
                             }
                         }
+                        cardController.saveCards();
                         jobFinished(jobParameters, false);
                     }
                 }

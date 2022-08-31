@@ -36,7 +36,6 @@ public class CardController implements Controller {
         this.rc = rc;
         this.context = context;
         update();
-        saveCards();
     }
 
 

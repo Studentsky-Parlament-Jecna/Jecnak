@@ -42,6 +42,7 @@ public class HomeFragment extends Fragment {
             cards[i] = card;
             i++;
         }
+        cardController.saveCards();
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
