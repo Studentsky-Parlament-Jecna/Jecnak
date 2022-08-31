@@ -7,9 +7,9 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_attendance"
-        android:icon="@drawable/ic_checklist"
-        android:title="@string/attendance"/>
+        android:id="@+id/navigation_schedule"
+        android:icon="@drawable/ic_baseline_calendar_today_24"
+        android:title="@string/schedule"/>
 
     <item
         android:id="@+id/navigation_grades"

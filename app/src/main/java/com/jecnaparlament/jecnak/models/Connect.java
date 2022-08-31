@@ -163,6 +163,24 @@ public class Connect {
     }
 
     /**
+     * Schedule
+     * @return Document
+     */
+    public Document getSchedule() {
+        Document doc = null;
+        try {
+            doc = Jsoup.connect("https://www.spsejecna.cz/timetable/class?schoolYearId=14&timetableId=152").cookies(session).get();
+        } catch (Exception e) {
+            try {
+                this.setSession();
+            } catch (LoginException | IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return doc;
+    }
+
+    /**
      * Profile
      * @return Document
      */

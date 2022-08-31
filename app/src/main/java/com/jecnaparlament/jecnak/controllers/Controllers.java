@@ -6,6 +6,7 @@ import com.jecnaparlament.jecnak.controllers.types.LateArrivalController;
 import com.jecnaparlament.jecnak.controllers.types.NewsController;
 import com.jecnaparlament.jecnak.controllers.types.ProfileController;
 import com.jecnaparlament.jecnak.controllers.types.RecordController;
+import com.jecnaparlament.jecnak.controllers.types.ScheduleController;
 import com.jecnaparlament.jecnak.models.Connect;
 
 public class Controllers{
@@ -16,7 +17,7 @@ public class Controllers{
     private final NewsController newsController;
     private final ProfileController profileController;
     private final RecordController recordController;
-
+    private final ScheduleController scheduleController;
 
     public Controllers(Connect connect) {
 
@@ -26,6 +27,8 @@ public class Controllers{
         newsController = new NewsController(connect);
         profileController = new ProfileController(connect);
         recordController = new RecordController(connect);
+        scheduleController = new ScheduleController(connect);
+
     }
 
     public AbsenceController getAbsenceController() {
@@ -50,5 +53,9 @@ public class Controllers{
 
     public NewsController getNewsController() {
         return newsController;
+    }
+
+    public ScheduleController getScheduleController() {
+        return scheduleController;
     }
 }

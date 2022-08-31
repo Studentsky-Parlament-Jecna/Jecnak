@@ -30,6 +30,12 @@
         tools:layout="@layout/fragment_attendance" />
 
     <fragment
+        android:id="@+id/navigation_schedule"
+        android:name="com.jecnaparlament.jecnak.fragments.ScheduleFragment"
+        android:label="@string/schedule"
+        tools:layout="@layout/fragment_schedule" />
+
+    <fragment
         android:id="@+id/navigation_profile"
         android:name="com.jecnaparlament.jecnak.fragments.ProfileFragment"
         android:label="@string/prof"
