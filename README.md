@@ -31,3 +31,10 @@ Nejnovější verzi ke stažení najdeš [zde](https://github.com/Studentsky-Par
 
 Zapojit se může každý a to pomocí pull requestu.
 Nejlepší ovšem bude, když se předem ozveš na [Discord](https://discord.gg/KkdNSGdSv9) Studentského Parlamentu, kde můžeme o vývoji a případných změnách diskutovat v k tomu určeném kanálu.
+
+
+# Zásady ochrany soukromí
+- Aplikace "Ječňák" uživatelská data používá výhradně ke komunikaci s webem https://www.spsejecna.cz. S tímto webem nemají vývojáři nic společného a nepodílí se na jeho vývoji, či jeho údržbě.
+- Používáním aplikace “Ječňák v kapse” si uvědomujete a souhlasíte
+    - Se zásadami soukromí webu https://www.spsejecna.cz.
+    - Že za vzniklé problémy spojené či způsobené aplikací "Ječňák" nese zodpovědnost sám uživatel nikoliv vývojáři či studentský parlament Ječná.
