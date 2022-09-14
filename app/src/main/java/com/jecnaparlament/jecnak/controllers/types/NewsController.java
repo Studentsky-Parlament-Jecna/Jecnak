@@ -34,7 +34,7 @@ public class NewsController implements Controller {
 
         Elements elements = doc.select(".event");
         for(Element element : elements) {
-            news.add(new News(element.select(".name").text(), element.select(".text p").text(), element.select(".footer").text()));
+            news.add(new News(element.select(".name").text(), element.select(".text").text(), element.select(".footer").text()));
         }
     }
 
