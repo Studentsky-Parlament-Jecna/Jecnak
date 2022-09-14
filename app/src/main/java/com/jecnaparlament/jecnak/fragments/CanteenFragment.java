@@ -36,9 +36,10 @@ public class CanteenFragment extends Fragment {
         String user = sh.getString("user", "");
         String password = sh.getString("pass", "");
 
-        final String js = "javascript:document.getElementById('j_username').value='"+user+"';" +
+        final String js = "javascript:if(document.title == 'iCanteen - Přihlášení') {document.body.style.visibility = \"hidden\";" +
+                "document.getElementById('j_username').value='"+user+"';" +
                 "document.getElementById('j_password').value='"+password+"';" +
-                " Array.from(document.getElementsByClassName('btn btn-primary btn-login'))[0].click()";
+                "Array.from(document.getElementsByClassName('btn btn-primary btn-login'))[0].click()}";
 
         WebView webView = view.findViewById(R.id.canteen_webview);
         webView.loadUrl("https://objednavky.jidelnasokolska.cz/?type=mobile");
