@@ -92,24 +92,30 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
         }else if(data[position].getType() == CardType.NEWS) {
 
-            viewHolder.linearLayout.setBackgroundColor(context.getColor(R.color.blue_400));
+            viewHolder.linearLayout.setBackgroundColor(context.getColor(R.color.light));
             viewHolder.subtitle.setText(R.string.new_news);
+            viewHolder.subtitle.setTextColor(context.getColor(R.color.darkGray));
             viewHolder.title.setText(data[position].getTitle());
+            viewHolder.title.setTextColor(context.getColor(R.color.black));
             viewHolder.content.setText(data[position].getContent());
-            viewHolder.content.setTextSize(20);
+            viewHolder.content.setTextColor(context.getColor(R.color.darkGray));
+            viewHolder.content.setTextSize(18);
             viewHolder.content.setTypeface(viewHolder.content.getTypeface(), Typeface.NORMAL);
             viewHolder.footer.setText(data[position].getFooter());
+            viewHolder.footer.setTextColor(context.getColor(R.color.gray));
 
         }else if(data[position].getType() == CardType.RECORD) {
 
-            viewHolder.linearLayout.setBackgroundColor(context.getColor(R.color.purple_700));
+            viewHolder.linearLayout.setBackgroundColor(context.getColor(R.color.light));
             viewHolder.subtitle.setVisibility(View.GONE);
             viewHolder.title.setText(R.string.new_parents_news);
+            viewHolder.title.setTextColor(context.getColor(R.color.black));
             viewHolder.content.setText(data[position].getContent());
+            viewHolder.content.setTextColor(context.getColor(R.color.darkGray));
             viewHolder.content.setTextSize(20);
             viewHolder.content.setTypeface(viewHolder.content.getTypeface(), Typeface.NORMAL);
             viewHolder.footer.setText(data[position].getFooter());
-
+            viewHolder.footer.setTextColor(context.getColor(R.color.gray));
         }
     }
 
