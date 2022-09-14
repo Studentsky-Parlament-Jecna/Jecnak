@@ -1,0 +1,234 @@
+:root {
+	--mainColor: #D8F3DC;
+}
+
+* {
+	font-family: sans-serif;
+	font-style: normal;
+	font-size: 12px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+div.timetable {
+	margin: 0 0 10px 0;
+	max-width: 750px;
+}
+
+div.timetable div.table {
+	background-color: var(--mainColor);
+	border-radius: 3px;
+	display: block;
+}
+
+table.timetable {
+	background: var(--mainColor);
+	border-radius: 3px;
+	width: 100%;
+}
+
+table.timetable th.period {
+	background-color: #F0F0F0;
+	border-radius: 3px;
+	color: #999;
+	width: 67px;
+	vertical-align: middle;
+}
+
+table.timetable th.period span.time {
+	display: block;
+	font-size: 9px;
+	font-weight: normal;
+	letter-spacing: -1px;
+}
+
+table.timetable th.day {
+	border-radius: 3px;
+	vertical-align: middle;
+	height: 80px;
+	width: 30px;
+}
+
+table.timetable td {
+	background-color: #fff;
+	height: 70px;
+	max-width: 40px;
+	border-radius: 3px;
+	padding: 0;
+	vertical-align: middle;
+}
+
+table.timetable td.empty {
+	background-color: #f0f0f0;
+}
+
+table.timetable td a:hover {
+	text-decoration: underline;
+}
+
+table.timetable td .employee,
+table.timetable td .group,
+table.timetable td .room,
+table.timetable td .class {
+	display: block;
+	font-size: 11px;
+	text-decoration: none;
+	clear: none;
+	max-width: 27px;
+	max-height: 14px;
+	overflow: hidden;
+}
+
+table.timetable td .subject {
+	font-size: 25px;
+	font-weight: 500;
+	text-align: center;
+	display: block;
+	margin: 8px 0 8px 0;
+	padding: 0;
+	text-decoration: none;
+}
+
+table.timetable td .employee {
+	text-align: left;
+	margin-left: 3px;
+}
+
+table.timetable td .room {
+	float: right;
+	margin-right: 3px;
+}
+
+table.timetable td .class {
+	float: left;
+	margin-left: 3px;
+}
+
+table.timetable td .group {
+	float: right;
+	margin-right: 3px;
+	max-width: 35px;
+	text-align: right;
+	color: #222;
+}
+
+table.timetable div.lessonEmpty {
+	background-color: #F0F0F0;
+}
+
+table.timetable div.lesson1 {
+	padding: 0 2px 0 2px;
+}
+
+table.timetable div.lesson5, 
+table.timetable div.lesson4, 
+table.timetable div.lesson3, 
+table.timetable div.lesson2 {
+	padding: 0 2px 0 2px;
+	clear: both;
+	border-top: solid 2px var(--mainColor);
+}
+
+table.timetable div.lesson5 a, table.timetable div.lesson4 a, table.timetable div.lesson3 a {
+	color: #667D9D;
+}
+
+table.timetable div.lesson2 .subject {
+	font-size: 15px;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+}
+
+table.timetable td div.lesson2.employee, 
+table.timetable td div.lesson2.room
+	{
+	margin-bottom: -3px;
+}
+
+table.timetable td div.lesson2.group, 
+table.timetable td div.lesson2.class
+	{
+	margin-top: -3px;
+}
+
+table.timetable div.lesson2Empty {
+	min-height: 39px;
+}
+
+table.timetable div.lesson5 .subject, 
+table.timetable div.lesson4 .subject, 
+table.timetable div.lesson3 .subject {
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+}
+
+table.timetable td div.lesson5.employee, 
+table.timetable td div.lesson5.room,
+table.timetable td div.lesson4.employee, 
+table.timetable td div.lesson4.room,
+table.timetable td div.lesson3.employee, 
+table.timetable td div.lesson3.room
+{
+	margin-bottom: -7px;
+}
+
+table.timetable td div.lesson5.group, 
+table.timetable td div.lesson5.class,
+table.timetable td div.lesson4.group, 
+table.timetable td div.lesson4.class,
+table.timetable td div.lesson3.group, 
+table.timetable td div.lesson3.class
+{
+	margin-top: -7px;
+}
+
+table.timetable div.lessonFirst {
+	border: none;
+}
+
+table.timetable div.lesson5Empty,
+table.timetable div.lesson4Empty,
+table.timetable div.lesson3Empty {
+	min-height: 38px;
+	border: none;
+}
+
+div.timetable div.versionLink a {
+	display: block;
+	padding: 5px 10px 8px 10px;
+	margin-bottom: 5px;
+	float: right;
+	margin-right: 20px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	background: #cecece;
+}
+
+div.timetable div.version div.versionLink a span.label, div.timetable div.version div.versionInfo
+	{
+	color: #333;
+	text-decoration: none;
+	font-size: 11px;
+}
+
+div.timetable div.versionLink a:hover {
+	background: #0B1728;
+}
+
+div.timetable div.version div.versionLink a:hover span.label {
+	color: #fff;
+}
+
+div.timetable div.versionInfo {
+	padding: 4px 0 0 0;
+}
+
+div.timetable .actual {
+	background-color: #FFFF99;
+}

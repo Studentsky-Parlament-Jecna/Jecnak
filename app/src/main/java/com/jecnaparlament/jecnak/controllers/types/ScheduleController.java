@@ -28,6 +28,6 @@ public class ScheduleController implements Controller {
         Document doc = connect.getSchedule();
         if(doc == null) return;
 
-        timetable = doc.select(".timetable").first().html();
+        timetable = doc.select("div.timetable").first().html();
     }
 }

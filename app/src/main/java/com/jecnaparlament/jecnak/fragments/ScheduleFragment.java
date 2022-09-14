@@ -41,13 +41,13 @@ public class ScheduleFragment extends Fragment {
         setHasOptionsMenu(true);
 
         String timetable = MainActivity.controllers.getScheduleController().getTimetable();
-        String document = "<!DOCTYPE html><html><head><style>table.timetable {background-color:#af99e0 !important;}table.timetable th.day {width:30px;}table.timetable div.lesson3:not(.lessonFirst), table.timetable div.lesson2:not(.lessonFirst){border-top: solid 2px #af99e0 !important;}</style>" +
-                "<link href=\"https://spsejecna.cz/layout/screen-1.15.css\" media=\"screen,projection\" rel=\"stylesheet\" type=\"text/css\" extras=\"\" />" +
-                "</head><body>"+timetable+"</body></html>";
+        String document = "<html><head><link href=\"https://raw.githubusercontent.com/Studentsky-Parlament-Jecna/Jecnak/main/app/src/main/assets/schedule.css\" rel=\"stylesheet\"></head>" +
+                "<body>"+timetable+"<script>document.getElementsByClassName(\"day\")[4].innerHTML = 'Pá';</script></body></html>";
 
         WebView webView = view.findViewById(R.id.schedule_webview);
         webView.loadData(document, "text/html", "UTF-8");
         webView.getSettings().setUseWideViewPort(true);
+        webView.getSettings().setJavaScriptEnabled(true);
 
         return view;
     }
