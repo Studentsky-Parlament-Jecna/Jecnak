@@ -13,7 +13,7 @@
 ## O aplikaci
 
 Neoficiální mobilní aplikace školy SPŠE Ječná vyvíjena studenty.
-Aplikace je alternativou k již existující aplikaci [Ječnák v kapse](https://github.com/JohnyDaDeveloper/Jecnakvkapse), která nenabízí tolik funkcí a jedná se spíše o mobilní verzi školního webu.
+Aplikace je alternativou k již existujícím aplikacím [Ječnák v kapse](https://github.com/JohnyDaDeveloper/Jecnakvkapse) a [Ječná mobile](https://play.google.com/store/apps/details?id=me.tomasan7.jecnamobile), které se liší pouze designem a nenabízí tolik funkcí a jedná se spíše o mobilní verzi školního webu.
 Naše aplikace ovšem přináší řadu nových užitečných funkcí. 
 
 - [x] přehled nových známek, novinek ze školy, sdělení rodičům
