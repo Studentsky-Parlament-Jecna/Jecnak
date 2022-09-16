@@ -19,12 +19,10 @@ Naše aplikace ovšem přináší řadu nových užitečných funkcí.
 - [x] upozornění na
     - [x]  nové známky
     - [x]  aktuality
-    - [ ]  aktualně probíhající hodinu
-    - [ ]  příští hodinu
+    - [ ]  probíhající a příští hodinu
     - [ ]  dnešní oběd
     - [ ]  včasný / pozdní přichod
 - [x] jídelna
-- [ ] informace zda jsi přišel/a včas
 - [ ] režim nerušit při vyučovací hodině
 
 Samozřejmostí jsou všechny informace ze školního webu (aktuality, známky a jejich průměry, absence, příchody a odchody, profil, atd..)
