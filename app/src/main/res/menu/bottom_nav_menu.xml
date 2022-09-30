@@ -22,8 +22,8 @@
         android:title="@string/canteen" />
 
     <item
-        android:id="@+id/navigation_profile"
-        android:icon="@drawable/ic_profile"
-        android:title="@string/prof"/>
+        android:id="@+id/navigation_attendance"
+        android:icon="@drawable/ic_checklist"
+        android:title="@string/attendance"/>
 
 </menu>

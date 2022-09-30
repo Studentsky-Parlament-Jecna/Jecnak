@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     R.id.navigation_schedule,
                     R.id.navigation_grades,
                     R.id.navigation_canteen,
-                    R.id.navigation_profile
+                    R.id.navigation_attendance
             ).build();
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
             NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -84,18 +84,26 @@ public class MainActivity extends AppCompatActivity {
             SharedPreferences sh = getSharedPreferences("login", MODE_PRIVATE);
             String user = sh.getString("user", "");
             String password = sh.getString("pass", "");
+
+            SharedPreferences cachePreferences = getSharedPreferences("cachedData", MODE_PRIVATE);
+
             Connect connect = null;
+
             try {
                 connect = new Connect(user, password);
             } catch (Exception e) {
-                SharedPreferences sharedPreferences = getSharedPreferences("login", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+                SharedPreferences.Editor editor = sh.edit();
                 editor.putString("user", null);
                 editor.putString("pass", null);
                 editor.apply();
+
+                SharedPreferences.Editor cachedData = cachePreferences.edit();
+                cachedData.putString("timetable", null);
+                cachedData.apply();
+
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
-            return new Controllers(connect);
+            return new Controllers(connect, cachePreferences);
         }
 
     }
