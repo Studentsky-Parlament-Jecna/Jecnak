@@ -24,15 +24,35 @@ import com.jecnaparlament.jecnak.models.Connect;
 
 import org.jsoup.nodes.Document;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.stream.Stream;
 
 import javax.security.auth.login.LoginException;
 
 public class ScheduleFragment extends Fragment {
+
     private FragmentScheduleBinding binding;
+    private String css;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        try {
+            InputStream stream = getActivity().getAssets().open("schedule.css");
+            int size = stream.available();
+            byte[] buffer = new byte[size];
+            stream.read(buffer);
+            stream.close();
+            css = new String(buffer);
+        } catch (IOException e) {
+        }
     }
 
     @Override
@@ -41,11 +61,13 @@ public class ScheduleFragment extends Fragment {
         setHasOptionsMenu(true);
 
         String timetable = MainActivity.controllers.getScheduleController().getTimetable();
-        String document = "<html><head><link href=\"https://raw.githubusercontent.com/Studentsky-Parlament-Jecna/Jecnak/main/app/src/main/assets/schedule.css\" rel=\"stylesheet\"></head>" +
+        System.out.println(timetable);
+        String document = "<html><head><style>"+css+"</style></head>" +
                 "<body>"+timetable+"<script>document.getElementsByClassName(\"day\")[4].innerHTML = 'Pá';</script></body></html>";
 
         WebView webView = view.findViewById(R.id.schedule_webview);
-        webView.loadData(document, "text/html", "UTF-8");
+        //webView.loadData(document, "text/html", "UTF-8");
+        webView.loadDataWithBaseURL("", document, "text/html", "UTF-8", "");
         webView.getSettings().setUseWideViewPort(true);
         webView.getSettings().setJavaScriptEnabled(true);
 
