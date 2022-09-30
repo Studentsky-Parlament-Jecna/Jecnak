@@ -69,12 +69,9 @@ public class BoxAdapter extends RecyclerView.Adapter<BoxAdapter.ViewHolder>{
             case "5":
                 viewHolder.card.setCardBackgroundColor(context.getColor(R.color.grade_5));
                 break;
-//            case "N":
-//                viewHolder.card.setCardBackgroundColor(context.getColor(R.color.gray));
-//                break;
-//            case "U":
-//                viewHolder.card.setCardBackgroundColor(context.getColor(R.color.gray));
-//                break;
+            default:
+                viewHolder.card.setCardBackgroundColor(context.getColor(R.color.white));
+                break;
         }
         viewHolder.card.setOnClickListener(new View.OnClickListener() {
             @Override
